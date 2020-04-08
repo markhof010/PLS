@@ -1,7 +1,7 @@
 import json
 
 
-fr = open(r'C:\\Users\\mark\\Documents\\HogeSchool\\analyse\Assignments\\PLS\\Loans.json')
+fr = open(r'./Loans.json')
 
 jippie = json.load(fr)
 
@@ -16,7 +16,7 @@ print(jippie)
 
 fr.close()
 
-fw = open(r'C:\\Users\\mark\\Documents\\HogeSchool\\analyse\Assignments\\PLS\\Loans.json','w')
+fw = open(r'./Loans.json','w',newline='\n')
 
 json.dump(jippie,fw)
 

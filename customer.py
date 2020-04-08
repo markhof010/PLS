@@ -1,6 +1,47 @@
 import json
 import csv
 
+def addLoan(data):
+    frLoan = open(r'./Loans.json')
+    loans = json.load(frLoan)
+        
+    loans.append(data)
+        
+    frLoan.close()
+
+    fw = open(r'./Loans.json','w')
+
+    json.dump(loans,fw)
+
+    fw.close()
+
+def GetBookInfo(title):
+    fr = open(r'./booksset1.json')
+    books = json.load(fr)
+
+    Book = {}
+
+    for book in books:
+        if title == book["title"]:
+            Book = book
+            break
+    
+    fr.close()
+    return Book
+
+def GetCustomerInfo(username):
+    fr = open(r'./FakeNameSet20.csv')
+    customers = csv.reader(fr)
+
+    Customer = []
+
+    for customer in customers:
+        if username == customer[9]:
+            Customer = customer
+            break
+    fr.close()
+    return Customer
+
 def showAllBook():
     with open(r'C:\\Users\\mark\Documents\\HogeSchool\\analyse\Assignments\\PLS\\booksset1.json') as f:
         data = json.load(f)
@@ -11,9 +52,9 @@ def showAllBook():
 
 def search():
      while True:
-        print("Please give the search option\n[1] Search on title\n[2] Search on author\n[3] Exit search")
+        print("\nPlease give the search option\n[1] Search on title\n[2] Search on author\n[3] Exit search")
         searchOption = input()
-        with open(r'/booksset1.json') as f:
+        with open(r'./booksset1.json') as f:
             data = json.load(f)
             
             if searchOption == "1":
@@ -40,9 +81,6 @@ def search():
                 break
    
 def Loan(username):
-    frBook = open(r'./booksset1.json')
-    books = json.load(frBook)
-
     exist = False
     title = ""
 
@@ -56,33 +94,22 @@ def Loan(username):
         if title == "exit":
             break
         else:
-            
+            book = GetBookInfo(title)
 
-            for book in books:
-                if book['title'] == title:
-                    exist = True
-                    break
-            if not(exist):
-                print("The titel is either spelled wrong or we don't have the book")
+            if not(book == {}):
+                exist = True
+                break
+            else:
+                print("The title is spelled wrong or we don't have the book")
     
-    frBook.close()
     
     if exist:
-        frCust = open(r'./FakeNameSet20.csv')
-        customers = csv.reader(frCust)
-        FirstName = ""
-        LastName = ""
-        EmailAdress = ""
-        TelefoonNumber = ""
+        customer = GetCustomerInfo(username)
 
-        for customer in customers:
-            if username == customer[9]:
-                FirstName = customer[3]
-                LastName = customer[4]
-                EmailAdress = customer[8]
-                TelefoonNumber = customer[10]
-
-        frCust.close()
+        FirstName = customer[3]
+        LastName = customer[4]
+        EmailAdress = customer[8]
+        TelefoonNumber = customer[10]
         
         newLoan =   {
                         "userName" : username,
@@ -92,23 +119,12 @@ def Loan(username):
                         "telefoonNumber" : TelefoonNumber,
                         "title" : title
                     }
-
+        
+        addLoan(newLoan)
         
 
 
-def addLoan(data):
-    frLoan = open(r'C:\\Users\\mark\\Documents\\HogeSchool\\analyse\Assignments\\PLS\\Loans.json')
-    loans = json.load(frLoan)
-        
-    loans.append(data)
-        
-    frLoan.close()
 
-    fw = open(r'C:\\Users\\mark\\Documents\\HogeSchool\\analyse\Assignments\\PLS\\Loans.json','w')
-
-    json.dump(loans,fw)
-
-        fw.close()
 
 def menu(username):
     while True:
