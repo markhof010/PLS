@@ -67,7 +67,7 @@ def search():
                 f.close()
 
             elif searchOption == "2":
-                print("Please enter the title")
+                print("Please enter the author")
                 name = input()
 
                 for book in data:
