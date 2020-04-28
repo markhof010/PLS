@@ -11,7 +11,12 @@ class Librarian(customer.Subscriber):
             elif userInput == "2":
                 Librarian.SearchBook(BookList)
             elif userInput == "3":
-                print("add book")
+                while True:
+                    BookList.addBook()
+                    print("Do you want to add another book?\n[1] yes\n[2] no")
+                    YorN = input()
+                    if YorN == "2":
+                        break
             elif userInput == "4":
                 print("see all loans")
             elif userInput == "5":
