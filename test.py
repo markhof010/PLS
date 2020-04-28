@@ -1,23 +1,26 @@
 import json
 
+#fr = open(r'./Loans.json')
 
-fr = open(r'./Loans.json')
+#jippie = json.load(fr)
 
-jippie = json.load(fr)
+#data = {
+            #"ik": "hallo",
+            #"jij": "hallo"
+        #}
 
-data = {
-            "ik": "hallo",
-            "jij": "hallo"
-        }
+#jippie.append(data)
 
-jippie.append(data)
+#print(jippie)
 
-print(jippie)
+#fr.close()
 
-fr.close()
+#fw = open(r'./Loans.json','w',newline='\n')
 
-fw = open(r'./Loans.json','w',newline='\n')
-
-json.dump(jippie,fw)
+#json.dump(jippie,fw)
 
 
+
+f = f= open(r'C:\Users\Gebruiker\Documents\GitHub\PLS\booksset1.json','r')
+hallo = json.load(f)
+print(hallo)
