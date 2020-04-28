@@ -2,20 +2,20 @@ import customer
 
 class Librarian(customer.Subscriber):
     @staticmethod
-    def Lmenu():
+    def Lmenu(BookList):
         while True:
             print("\nPlease enter the number that stands before the actions you want to do\n[1] See all available books\n[2] Search for a book\n[3] Add a book\n[4] See all loans\n[5] Make a loan\n[6] Cancel a loan\n[7] See all subscribers\n[8] Add a subscriber\n[9] Make a backup\n[10] Restore from backup\n[11] Exit")
             userInput = input()
             if userInput == "1":
-                customer.Subscriber.SeeBooks()
+                Librarian.SeeBooks(BookList)
             elif userInput == "2":
-                customer.Subscriber.SearchBook()
+                Librarian.SearchBook(BookList)
             elif userInput == "3":
                 print("add book")
             elif userInput == "4":
                 print("see all loans")
             elif userInput == "5":
-                customer.Subscriber.LoanBook()
+                Librarian.LoanBook()
             elif userInput == "6":
                 print("Cancel loans")
             elif userInput == "7":
@@ -30,8 +30,3 @@ class Librarian(customer.Subscriber):
                 break
             else:
                 print("Enter an option from the menu")
-            
-    
-    
-
-Librarian.Lmenu()

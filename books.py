@@ -28,7 +28,7 @@ class Book:
         
     
     def displayBook(self):
-        return("title:%s author:%s" % (self.author, self.title))
+        return("Title: %s\nAuthor: %s\nYear: %i\nLanguage: %s\nCountry: %s\nPages: %i\n" % (self.title, self.author, self.year, self.language, self.country, self.pages))
 
     
     
