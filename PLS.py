@@ -4,6 +4,8 @@ import customer
 import Companies
 import librarian
 import books
+import Loans
+import person
 
 def ClearFun():
     if platform.system() == "Windows":
@@ -12,6 +14,8 @@ def ClearFun():
         os.system('clear')
 
 BookList = books.Books()
+LoanList = Loans.LoanAdministration()
+PersonList = person.personList()
 
 while True:
     print("[1] Subscriber\n[2] Publishing company\n[3] Librarian")
@@ -20,7 +24,7 @@ while True:
     if personLogin == "1":
         username = input("Please enter your username: ")
         ClearFun()
-        customer.Subscriber.Smenu(username,BookList)
+        customer.Subscriber.Smenu(username,BookList, LoanList, PersonList)
 
     elif personLogin == "2":
         print("PublishingCompany")
@@ -33,7 +37,7 @@ while True:
             password = input("Please enter the password:\n")
             if loginName == "librarian" and password == "librarian":
                 ClearFun()
-                librarian.Librarian.Lmenu(BookList)
+                librarian.Librarian.Lmenu(BookList, LoanList, PersonList)
                 break
             elif loginName != "librarian":
                 print("Wrong username!")
