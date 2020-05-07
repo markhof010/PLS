@@ -1,5 +1,6 @@
 import customer
 import Loans
+from backup import Backup
 
 class Librarian(customer.Subscriber):
     @staticmethod
@@ -31,6 +32,8 @@ class Librarian(customer.Subscriber):
                 print("Add a subscriber")
             elif userInput == "9":
                 print("Make a backup")
+                Backup().makeBackup()
+            
             elif userInput == "10":
                 print("restore from backup")
             elif userInput == "11":
