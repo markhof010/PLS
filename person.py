@@ -47,25 +47,3 @@ class personList:
         print("This person list contains:")
         for b in self.persons:
             b.display()
-        
-# Create 3 users
-person1 = Person(1, "Male", "FB", "Ferdi", "Bilgic", "Van Ravesteyn Erf, 430", "3315 DT", "Dordrecht", "0984562@hr.nl", "FBHR", "06123456789")
-person2 = Person(2, "Female", "DC", "Jane", "Doe", "Van Dirk Erf, 220", "5524 TD", "Utrecht", "213456@hr.nl", "JaneDoe", "06987654321")
-person3 = Person(3, "Male", "WO", "John", "Doe", "Van Jan Erf, 124", "3452 PR", "Amsterdam", "84657@hr.nl", "JohnDoeeee", "067382374")
-#person4 = Person.from_input()
-
-# Display the users
-person1.display()
-person2.display()
-person3.display()
-
-# Create a list object and save the users in there
-mypersons = personList()
-mypersons.add(person1)
-mypersons.add(person2)
-mypersons.add(Person.from_input())
-mypersons.remove(person2)
-
-
-# Display all the users
-mypersons.show()
