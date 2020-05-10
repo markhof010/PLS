@@ -59,10 +59,11 @@ def restore():
     with open(JSON_PATH_BOOKS,'w') as bookJson:
         json.dump(backupFile["allBooks"], bookJson)
     
-    '''
-    with open(CSV_PATH_NAMES,'w') as personCSV:
+    
+    with open(CSV_PATH_NAMES,'w',newline='', encoding = 'utf-8-sig') as personCSV:
         fieldnames = ['Number','Gender','NameSet','GivenName','Surname','StreetAddress','ZipCode','City','EmailAddress','Username','TelephoneNumber']
         thewriter = csv.DictWriter(personCSV, fieldnames = fieldnames)
         thewriter.writeheader()
         thewriter.writerows(backupFile["nameList"])
-    '''
+    
+restore()
