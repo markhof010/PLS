@@ -23,23 +23,23 @@ class Person:
     def from_input(cls):
         return cls(
             int(input('PERSON ID: ')),
-            input('GENDER: '), 
+            input('GENDER: '),
             input('NAMESET: '),
-            input('GIVENNAME: '), 
+            input('GIVENNAME: '),
             input('SURNAME: '),
-            input('STREET: '), 
+            input('STREET: '),
             input('ZIPCODE: '),
-            input('CITY: '), 
+            input('CITY: '),
             input('EMAIL: '),
-            input('USERNAME: '), 
+            input('USERNAME: '),
             input('TELEPHONE: ')
-        )    
-        
+        )
+
     def display(self):
         print("PERSON ID: %d, GENDER: %s, NAMESET: %s, GIVENNAME: %s, SURNAME: %s, STREET: %s, ZIPCODE: %s, CITY: %s, EMAIL: %s, USERNAME: %s, TELEPHONE: %s \n" % (self.number, self.gender, self.nameSet, self.givenName, self.surname, self.streetAdress, self.zipCode, self.city, self.emailAdress, self.username, self.telephoneNumber))
 
 # A list to save the people in
-class personList:
+class PersonList:
     def __init__(self):
         self.persons = []
         with open('FakeNameSet20.csv', 'r',) as file:
@@ -48,18 +48,18 @@ class personList:
             for row in reader:
                 self.persons.append(Person(
                     None, row["gender"], row["nameSet"], row["givenName"], row["surname"], row["streetAdress"], row["zipCode"], row["city"], row["emailAdress"], row["username"], row["telephoneNumber"]))
-        
+
     def add(self, person):
         self.persons.append(person)
 
     def remove(self, person):
         self.persons.remove(person)
-        
+
     def show(self):
         print("This person list contains:")
         for b in self.persons:
             b.display()
-        
+
 # Create 3 users
 #person1 = Person(1, "Male", "FB", "Ferdi", "Bilgic", "Van Ravesteyn Erf, 430", "3315 DT", "Dordrecht", "0984562@hr.nl", "FBHR", "06123456789")
 #person2 = Person(2, "Female", "DC", "Jane", "Doe", "Van Dirk Erf, 220", "5524 TD", "Utrecht", "213456@hr.nl", "JaneDoe", "06987654321")

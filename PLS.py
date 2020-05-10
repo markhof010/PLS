@@ -15,7 +15,7 @@ def ClearFun():
 
 BookList = books.Books()
 LoanList = Loans.LoanAdministration()
-PersonList = person.personList()
+PersonList = person.PersonList()
 
 while True:
     print("[1] Subscriber\n[2] Publishing company\n[3] Librarian")
@@ -33,13 +33,14 @@ while True:
 
     elif personLogin == "3":
         while True:
-            loginName = input("Please enter your username:\n")
-            password = input("Please enter the password:\n")
-            if loginName == "librarian" and password == "librarian":
-                ClearFun()
-                librarian.Librarian.Lmenu(BookList, LoanList, PersonList)
-                break
-            elif loginName != "librarian":
-                print("Wrong username!")
-            elif password != "librarian":
-                print("Wrong password!")
+             loginName = input("Please enter your username:\n")
+             password = input("Please enter the password:\n")
+             if loginName == "librarian" and password == "librarian":
+                 ClearFun()
+                 librarian.Librarian.Lmenu(BookList, LoanList, PersonList)
+                 break
+             elif loginName != "librarian":
+                 print("Wrong username!")
+             elif password != "librarian":
+                 print("Wrong password!")
+            #librarian.Librarian.Lmenu(BookList, LoanList, PersonList)
