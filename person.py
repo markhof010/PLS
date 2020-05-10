@@ -2,7 +2,7 @@ import csv
 import os
 from pathlib import Path
 
-
+CSV_PATH_NAMES = str(Path(__file__).parent / 'FakeNameSet20.csv')
 
 # A simple class to make the subscriber
 class Person:
@@ -19,21 +19,7 @@ class Person:
         self.username = username
         self.telephoneNumber = telephoneNumber
 
-    @classmethod
-    def from_input(cls):
-        return cls(
-            int(input('PERSON ID: ')),
-            input('GENDER: '),
-            input('NAMESET: '),
-            input('GIVENNAME: '),
-            input('SURNAME: '),
-            input('STREET: '),
-            input('ZIPCODE: '),
-            input('CITY: '),
-            input('EMAIL: '),
-            input('USERNAME: '),
-            input('TELEPHONE: ')
-        )
+    
 
     def display(self):
         print("PERSON ID: %d, GENDER: %s, NAMESET: %s, GIVENNAME: %s, SURNAME: %s, STREET: %s, ZIPCODE: %s, CITY: %s, EMAIL: %s, USERNAME: %s, TELEPHONE: %s \n" % (self.number, self.gender, self.nameSet, self.givenName, self.surname, self.streetAdress, self.zipCode, self.city, self.emailAdress, self.username, self.telephoneNumber))
@@ -41,44 +27,63 @@ class Person:
 # A list to save the people in
 class PersonList:
     def __init__(self):
-        self.persons = []
-        with open('FakeNameSet20.csv', 'r',) as file:
-            reader = csv.DictReader(file, delimiter = '\t')
+        self.nameList = []
+        with open(CSV_PATH_NAMES,'r', encoding='utf-8-sig') as nameCSV:
+            #every row new dictionary, key and value
+            reader = csv.reader(nameCSV)
             next(reader)
             for row in reader:
-                self.persons.append(Person(
-                    None, row["gender"], row["nameSet"], row["givenName"], row["surname"], row["streetAdress"], row["zipCode"], row["city"], row["emailAdress"], row["username"], row["telephoneNumber"]))
+                self.nameList.append(Person(int(row[0]), row[1], row[2], row[3], row[4], row[5], row[6], row[7], row[8], row[9], row[10]))
 
-    def add(self, person):
-        self.persons.append(person)
+    def addPerson(self):
+        print("Add a person: ")
+        #AUTO INCREMENT, LET OP +1 OF +2
+        newID = len(self.nameList) + 1
+        print("GENDER:")
+        newGender = input()
+        print("NAMESET:")
+        newNameset = input()
+        print("GIVENNAME:")
+        newGivenname = input()
+        print("SURNAME: ")
+        newSurname = input()
+        print("STREET:")
+        newStreet = input()
+        print("ZIPCODE:")
+        newZipcode = input()
+        print("CITY:")
+        newCity= input()
+        print("EMAIL:")
+        newEmail = input()
+        print("USERNAME:")
+        newUsername = input()
+        print("TELEPHONE:")
+        newTelephone = str(input())
 
-    def remove(self, person):
-        self.persons.remove(person)
+        #saving new book to the list
+        self.nameList.append(Person(newID, newGender, newNameset, newGivenname, newSurname, newStreet, newZipcode, newCity, newEmail, newUsername, newTelephone))
+        self._savePersons()
 
-    def show(self):
-        print("This person list contains:")
-        for b in self.persons:
-            b.display()
-
-# Create 3 users
-#person1 = Person(1, "Male", "FB", "Ferdi", "Bilgic", "Van Ravesteyn Erf, 430", "3315 DT", "Dordrecht", "0984562@hr.nl", "FBHR", "06123456789")
-#person2 = Person(2, "Female", "DC", "Jane", "Doe", "Van Dirk Erf, 220", "5524 TD", "Utrecht", "213456@hr.nl", "JaneDoe", "06987654321")
-#person3 = Person(3, "Male", "WO", "John", "Doe", "Van Jan Erf, 124", "3452 PR", "Amsterdam", "84657@hr.nl", "JohnDoeeee", "067382374")
-#person4 = Person.from_input()
-
-# Display the users
-#person1.display()
-#person2.display()
-#person3.display()
-
-# Create a list object and save the users in there
-#mypersons = personList()
-
-#mypersons.add(person1)
-#mypersons.add(person2)
-#mypersons.add(Person.from_input())
-#mypersons.remove(person2)
-
-
-# Display all the users
-#b.show()
+    def _savePersons(self):
+        with open(CSV_PATH_NAMES,'w',newline='', encoding = 'utf-8-sig') as personCSV:
+            fieldnames = ['Number','Gender','NameSet','GivenName','Surname','StreetAddress','ZipCode','City','EmailAddress','Username','TelephoneNumber']
+            thewriter = csv.DictWriter(personCSV, fieldnames = fieldnames)
+            thewriter.writeheader()
+            csvList = []
+            for row in self.nameList:
+                rowDict = {
+                    "Number": row.number,
+                    "Gender": row.gender,
+                    "NameSet": row.nameSet,
+                    "GivenName": row.givenName,
+                    "Surname": row.surname,
+                    "StreetAddress": row.streetAdress,
+                    "ZipCode": row.zipCode,
+                    "City": row.city,
+                    "EmailAddress": row.emailAdress,
+                    "Username": row.username,
+                    "TelephoneNumber": row.telephoneNumber
+                    }
+                csvList.append(rowDict)
+            thewriter.writerows(csvList)
+            

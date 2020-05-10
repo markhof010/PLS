@@ -65,5 +65,3 @@ def restore():
         thewriter = csv.DictWriter(personCSV, fieldnames = fieldnames)
         thewriter.writeheader()
         thewriter.writerows(backupFile["nameList"])
-    
-restore()

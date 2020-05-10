@@ -44,3 +44,6 @@ while True:
              elif password != "librarian":
                  print("Wrong password!")
             #librarian.Librarian.Lmenu(BookList, LoanList, PersonList)
+
+    elif personLogin == "4":
+        print(PersonList.nameList)
