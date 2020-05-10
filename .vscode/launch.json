@@ -10,6 +10,13 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Debug PLS",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/PLS.py",
+            "console": "integratedTerminal"
         }
     ]
 }

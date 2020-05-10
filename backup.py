@@ -22,10 +22,10 @@ class Backup:
             allBooks = json.load(bookJson)
         with open(JSON_PATH_LOANS,'r') as loanJson:
             allLoans = json.load(loanJson)
-        with open(CSV_PATH_NAMES,'r') as nameCSV:
+        with open(CSV_PATH_NAMES,'r', encoding='utf-8-sig') as nameCSV:
             nameList = []
             #every row new dictionary, key and value
-            for row in csv.DictReader(nameCSV, skipinitialspace=True):
+            for row in csv.DictReader(nameCSV):
                 nameList.append(row)
         if not BACKUP_PATH.exists():
             BACKUP_PATH.mkdir()

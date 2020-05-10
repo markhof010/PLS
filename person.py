@@ -33,7 +33,7 @@ class Person:
         print("PERSON ID: %d, GENDER: %s, NAMESET: %s, GIVENNAME: %s, SURNAME: %s, STREET: %s, ZIPCODE: %s, CITY: %s, EMAIL: %s, USERNAME: %s, TELEPHONE: %s \n" % (self.number, self.gender, self.nameSet, self.givenName, self.surname, self.streetAdress, self.zipCode, self.city, self.emailAdress, self.username, self.telephoneNumber))
 
 # A list to save the people in
-class personList:
+class PersonList:
     def __init__(self):
         self.persons = []
         
