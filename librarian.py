@@ -1,5 +1,6 @@
 import customer
 import Loans
+import person
 from backup import Backup
 import backup
 
@@ -9,10 +10,13 @@ class Librarian(customer.Subscriber):
         while True:
             print("\nPlease enter the number that stands before the actions you want to do\n[1] See all available books\n[2] Search for a book\n[3] Add a book\n[4] See all loans\n[5] Make a loan\n[6] Cancel a loan\n[7] See all subscribers\n[8] Add a subscriber\n[9] Make a backup\n[10] Restore from backup\n[11] Exit")
             userInput = input()
+            
             if userInput == "1":
                 Librarian.SeeBooks(BookList)
+            
             elif userInput == "2":
                 Librarian.SearchBook(BookList)
+            
             elif userInput == "3":
                 while True:
                     BookList.addBook()
@@ -20,17 +24,24 @@ class Librarian(customer.Subscriber):
                     YorN = input()
                     if YorN == "2":
                         break
+            
             elif userInput == "4":
                 Librarian.SeeLoans(LoanList)
+            
             elif userInput == "5":
-                username = input("Please enter the username of the person that wants to loan a book")
+                username = input("Please enter the username of the person that wants to loan a book\n")
                 Librarian.LoanBook(username,BookList,PersonList,LoanList)
+            
             elif userInput == "6":
                 Librarian.RemoveLoans(LoanList)
+            
             elif userInput == "7":
-                print("See all subscribers")
+                for person in PersonList.nameList:
+                    print(person.display())
+            
             elif userInput == "8":
-                print("Add a subscriber")
+                PersonList.addPerson()
+            
             elif userInput == "9":
                 print("Make a backup")
                 Backup().makeBackup()

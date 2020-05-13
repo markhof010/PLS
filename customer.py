@@ -25,8 +25,8 @@ class Subscriber(Companies.PublishingCompany):
             if book.title == inpuntTitle:
                 Book = book
 
-        for person in PersonList.persons:
-            if person == person.username:
-                Person = person
+                for person in PersonList.nameList:
+                    if username == person.username:
+                        Person = person
                         
-        LoanList.AddLoan(Book,Person)
+                        LoanList.AddLoan(Book,Person)

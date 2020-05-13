@@ -7,7 +7,7 @@ from datetime import datetime
 
 
 JSON_PATH_BOOKS = str(Path(__file__).parent / 'booksset1.json')
-JSON_PATH_LOANS = str(Path(__file__).parent / 'Loans.json')
+JSON_PATH_LOANS = str(Path(__file__).parent / 'loan.json')
 CSV_PATH_NAMES = str(Path(__file__).parent / 'FakeNameSet20.csv')
 BACKUP_PATH = Path(__file__).parent / 'backups'
 
@@ -58,6 +58,9 @@ def restore():
     
     with open(JSON_PATH_BOOKS,'w') as bookJson:
         json.dump(backupFile["allBooks"], bookJson)
+
+    with open(JSON_PATH_LOANS,'w') as loanJson:
+        json.dump(backupFile["allLoans"], loanJson)
     
     
     with open(CSV_PATH_NAMES,'w',newline='', encoding = 'utf-8-sig') as personCSV:
