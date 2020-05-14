@@ -33,7 +33,7 @@ class Librarian(customer.Subscriber):
                 Librarian.LoanBook(username,BookList,PersonList,LoanList)
             
             elif userInput == "6":
-                Librarian.RemoveLoans(LoanList)
+                Librarian.RemoveLoans(LoanList,BookList)
             
             elif userInput == "7":
                 Librarian.SeeSubscribers(PersonList)
@@ -63,7 +63,13 @@ class Librarian(customer.Subscriber):
             print(person.display())
 
     @staticmethod
-    def RemoveLoans(LoanList):
+    def RemoveLoans(LoanList,BookList):
         username = input("Please enter the username\n")
         title = input("Please enter the title of the book\n")
+        for loan in LoanList.ListofLoans:
+            if loan.person.username == username and loan.book.title == title:
+                for book in BookList.bookList:
+                    if book.title == title:
+                        book.loaned = book.loaned - 1
+        
         LoanList.RemoveLoan(title, username)
