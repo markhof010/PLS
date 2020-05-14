@@ -38,8 +38,6 @@ class Backup:
         with open(str(BACKUP_PATH / f'{int(creationDate)}.json'), 'w+') as backup:
             json.dump(backupDict, backup)
 
-class BackUpManager:
-    pass
 
 def restore():
     backups = []

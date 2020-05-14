@@ -101,10 +101,3 @@ class Books:
         os.unlink(JSON_PATH) 
         with open(JSON_PATH, 'w+') as f:
             json.dump(book_dict_list, f)
-
-
-    def deleteBooks(self):
-        print("Delete a book\nEnter the title: ")
-
-
-bookss = Books()

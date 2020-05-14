@@ -19,8 +19,6 @@ class Person:
         self.username = username
         self.telephoneNumber = telephoneNumber
 
-    
-
     def display(self):
         return ("PERSON ID: %s\nGENDER: %s\nNAMESET: %s\nGIVENNAME: %s\nSURNAME: %s\nSTREET: %s\nZIPCODE: %s\nCITY: %s\nEMAIL: %s\nUSERNAME: %s\nTELEPHONE: %s\n" % (self.number, self.gender, self.nameSet, self.givenName, self.surname, self.streetAdress, self.zipCode, self.city, self.emailAdress, self.username, self.telephoneNumber))
 
