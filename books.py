@@ -34,7 +34,8 @@ class Book:
         
     
     def displayBook(self):
-        return("Title: %s\nAuthor: %s\nYear: %i\nLanguage: %s\nCountry: %s\nPages: %i\n" % (self.title, self.author, self.year, self.language, self.country, self.pages))
+        Left = self.amount - self.loaned
+        return("Title: %s\nAuthor: %s\nYear: %i\nLanguage: %s\nCountry: %s\nPages: %i\nBooks left: %i/%i\n" % (self.title, self.author, self.year, self.language, self.country, self.pages, Left,self.amount))
 
     
     

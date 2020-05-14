@@ -36,7 +36,7 @@ class Librarian(customer.Subscriber):
                 Librarian.RemoveLoans(LoanList)
             
             elif userInput == "7":
-                SeeSubscribers(PersonList)
+                Librarian.SeeSubscribers(PersonList)
             
             elif userInput == "8":
                 PersonList.addPerson()
