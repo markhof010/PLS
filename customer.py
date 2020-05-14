@@ -20,13 +20,13 @@ class Subscriber(Companies.PublishingCompany):
     @staticmethod
     def LoanBook(username,BookList, PersonList, LoanList):
         inpuntTitle = input("Please enter the title of the book you want to reserve\n")
-
         for book in BookList.bookList:
             if book.title == inpuntTitle:
-                Book = book
-
-                for person in PersonList.nameList:
-                    if username == person.username:
-                        Person = person
-                        
-                        LoanList.AddLoan(Book,Person)
+                if book.amount > book.loaned:
+                    for person in PersonList.nameList:
+                        if username == person.username:
+                            book.loaned = book.loaned + 1
+                            BookList._saveBooks()
+                            LoanList.AddLoan(book,person)
+                else:
+                    print("This book is not available")

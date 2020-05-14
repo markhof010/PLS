@@ -55,8 +55,17 @@ class PersonList:
         newCity= input()
         print("EMAIL:")
         newEmail = input()
-        print("USERNAME:")
-        newUsername = input()
+        y = True
+        while y:
+            print("USERNAME:")
+            newUsername = input()
+            y = False
+            for person in self.nameList:
+                if newUsername == person.username:
+                    print("This username already exists")
+                    y = True
+                    break
+
         print("TELEPHONE:")
         newTelephone = str(input())
 

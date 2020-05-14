@@ -22,9 +22,17 @@ while True:
     personLogin = input("Please enter a number that stand before the choices: ")
 
     if personLogin == "1":
-        username = input("Please enter your username: ")
-        ClearFun()
-        customer.Subscriber.Smenu(username,BookList, LoanList, PersonList)
+        y = True
+        while y:
+            username = input("Please enter your username: ")
+            for person in PersonList.nameList:
+                if username == person.username:
+                    ClearFun()
+                    customer.Subscriber.Smenu(username,BookList, LoanList, PersonList)
+                    y = False
+                    break
+            if y:
+                print("Please enter a username that exists")
 
     elif personLogin == "2":
         print("PublishingCompany")
@@ -33,16 +41,17 @@ while True:
 
     elif personLogin == "3":
         while True:
-             loginName = input("Please enter your username:\n")
-             password = input("Please enter the password:\n")
-             if loginName == "librarian" and password == "librarian":
-                 ClearFun()
-                 librarian.Librarian.Lmenu(BookList, LoanList, PersonList)
-                 break
-             elif loginName != "librarian":
-                 print("Wrong username!")
-             elif password != "librarian":
-                 print("Wrong password!")
+            loginName = input("Please enter your username:\n")
+            if loginName == "librarian":
+                password = input("Please enter the password:\n")
+                if password == "librarian":
+                    ClearFun()
+                    librarian.Librarian.Lmenu(BookList, LoanList, PersonList)
+                    break
+                else:
+                    print("Wrong password!")
+            else:
+                print("Wrong username!")
             #librarian.Librarian.Lmenu(BookList, LoanList, PersonList)
 
     elif personLogin == "4":

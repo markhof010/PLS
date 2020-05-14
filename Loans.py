@@ -13,7 +13,7 @@ class Loan:
         self.book = book
     
     def toDict(self):
-        return {'person': {'Number': self.person.number,'Gender': self.person.gender, 'NameSet': self.person.nameSet,'GivenName': self.person.givenName,'Surname': self.person.surname,'StreetAddress': self.person.streetAdress,'ZipCode': self.person.zipCode,'City': self.person.city,'EmailAddress': self.person.emailAdress,'Username': self.person.username,'TelephoneNumber': self.person.telephoneNumber,},'book': {'ISBN': self.book.ISBN, 'author': self.book.author, 'country': self.book.country, 'language': self.book.language, 'imagelink': self.book.imageLink, 'link': self.book.link, 'pages': self.book.pages, 'title': self.book.title, 'year': self.book.year}}
+        return {'person': {'Number': self.person.number,'Gender': self.person.gender, 'NameSet': self.person.nameSet,'GivenName': self.person.givenName,'Surname': self.person.surname,'StreetAddress': self.person.streetAdress,'ZipCode': self.person.zipCode,'City': self.person.city,'EmailAddress': self.person.emailAdress,'Username': self.person.username,'TelephoneNumber': self.person.telephoneNumber,},'book': self.book.toDict()}
 
     def DisplayLoan(self):
         return(self.book.displayBook()+"\n" + self.person.display() + "-----------------------------------------------\n")
