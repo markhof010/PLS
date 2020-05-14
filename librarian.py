@@ -36,8 +36,7 @@ class Librarian(customer.Subscriber):
                 Librarian.RemoveLoans(LoanList)
             
             elif userInput == "7":
-                for person in PersonList.nameList:
-                    print(person.display())
+                SeeSubscribers(PersonList)
             
             elif userInput == "8":
                 PersonList.addPerson()
@@ -57,6 +56,11 @@ class Librarian(customer.Subscriber):
     def SeeLoans(LoanList):
         for loan in LoanList.ListofLoans:
             print(loan.DisplayLoan())
+
+    @staticmethod
+    def SeeSubscribers(PersonList):
+        for person in PersonList.nameList:
+            print(person.display())
 
     @staticmethod
     def RemoveLoans(LoanList):

@@ -22,7 +22,7 @@ class PublishingCompany:
     @staticmethod
     def SearchBook(BookList):
         print("\nPlease enter a number that stand before the action you want to do")
-        print("[1] Search on title\n[2] Search on Author\n[3] Search on laguage\n[4] Search on country")
+        print("[1] Search on title\n[2] Search on Author\n[3] Search on language\n[4] Search on country")
         choice = input()
         
         title = ""
