@@ -15,7 +15,7 @@ BACKUP_PATH = Path(__file__).parent / 'backups'
 class Backup:
     
     def __init__(self):
-        print("Making a backup")
+        print("Backup has been succesfully made")
     
     def makeBackup(self):
         with open(JSON_PATH_BOOKS,'r') as bookJson:
