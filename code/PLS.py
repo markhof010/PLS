@@ -18,7 +18,7 @@ LoanList = Loans.LoanAdministration()
 PersonList = person.PersonList()
 
 while True:
-    print("[1] Subscriber\n[2] Publishing company\n[3] Librarian")
+    print("[1] Subscriber\n[2] Publishing company\n[3] Librarian\n[4] Exit the program")
     personLogin = input("Please enter a number that stand before the choices: ")
 
     if personLogin == "1":
@@ -55,4 +55,4 @@ while True:
             #librarian.Librarian.Lmenu(BookList, LoanList, PersonList)
 
     elif personLogin == "4":
-        print(PersonList.nameList)
+        break
